@@ -1,0 +1,10 @@
+todo.txt
+
+# ignore compiler output
+obj/
+
+# ignore the emulator and rom
+rom/
+
+# ignore tools
+tools/
