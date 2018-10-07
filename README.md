@@ -15,7 +15,7 @@ These instructions will get you a copy of the project up and running on your loc
 To build the project from source you will need the following:
 
 * Small Devices C Compiler [SDCC](http://sdcc.sourceforge.net/)
-* GB-Library [GBDK-n](https://github.com/andreasjhkarlsson/gbdk-n])
+* GB-Library [GBDK-n](https://github.com/andreasjhkarlsson/gbdk-n)
 
 #### Build Instructions
 
@@ -43,14 +43,14 @@ This file can be played in an emulator or transferred to a cartridge to play it 
 
 ## Built With
 
-Compiler: [SDCC](http://sdcc.sourceforge.net/) - GPL/zlib
-Library: [GBDK-n](https://github.com/andreasjhkarlsson/gbdk-n]) - OSI
-Code Editor: [Notepad++](https://notepad-plus-plus.org) - GPL
-Graphics: [GBSpriteStudio](pending release as foss) - 
-Music: [OpenMPT](https://openmpt.org/) - GPL
-Converter: [pewMusicConverter](pending release as foss) - 
-Sound: [gbsound.gb](http://gbdev.gg8.se/files/musictools/Unknown-Other/)
-Emulator: [yet undecided]()
+* Compiler: [SDCC](http://sdcc.sourceforge.net/) - GPL/zlib
+* Library: [GBDK-n](https://github.com/andreasjhkarlsson/gbdk-n) - OSI
+* Code Editor: [Notepad++](https://notepad-plus-plus.org) - GPL
+* Graphics: [GBSpriteStudio](pending release as foss) - 
+* Music: [OpenMPT](https://openmpt.org/) - GPL
+* Converter: [pewMusicConverter](pending release as foss) - 
+* Sound: [gbsound.gb](http://gbdev.gg8.se/files/musictools/Unknown-Other/)
+* Emulator: [yet undecided]()
 
 ## Contributing
 
