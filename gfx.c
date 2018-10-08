@@ -1,8 +1,7 @@
 #include <gb/gb.h>
-#include <gb/rand.h>
 
 #include "gfx.h"
-
+#include "sfx.h"
 
 /* PALETTE TRICKERY (fade out/in etc.) */ 
 
@@ -94,7 +93,7 @@ void gfx_update_hud(UINT8 x, UINT8 len, unsigned char* data)
 }
 
 /*
-write a string to the background
+ write a string to the background
 */
 
 void gfx_type(char* string, UINT8 x, UINT8 y, UINT8 w)
@@ -124,6 +123,10 @@ void gfx_type(char* string, UINT8 x, UINT8 y, UINT8 w)
 		if (cx >= x+w) { cx = x; cy++; }
 		set_bkg_tiles(cx, cy, 1, 1, &converted[i]);
 		cx++;
+		
+		if (string[i] != ' ') 
+			sfx_type();
+		
 		delay(TYPE_DELAY);
 	}
 }
@@ -197,4 +200,3 @@ void gfx_load_map(unsigned char* mapData)
 {
 	set_bkg_tiles(0u, 0u, 20, 18, mapData);
 }
-

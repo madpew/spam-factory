@@ -74,6 +74,6 @@ const UINT8 MUS_GAME_data[] = {
 
 };
 
-#define MUS_GAME MUS_GAME_data, 96u, 0ul, 0ul, 0ul
+#define MUS_GAME MUS_GAME_data, 96u, 0x1131ul, 0xE444ul, 0xFFFFul
 
 #endif
