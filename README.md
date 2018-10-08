@@ -2,7 +2,9 @@
 
 a clicker-game for the GameBoy.
 
-[download]() the rom from the releases and play it with an emulator or flash it to a cartridge to play on the real hardware.
+[download](https://github.com/madpew/spam-factory/releases/download/1/spam.gb) the rom from the releases and play it with an emulator or flash it to a cartridge to play on the real hardware.
+
+If you don't want to install an emulator you can use this online emulator: http://taisel.github.io/GameBoy-Online/
 
 ## Getting Started
 
