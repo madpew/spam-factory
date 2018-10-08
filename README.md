@@ -2,7 +2,7 @@
 
 a clicker-game for the GameBoy.
 
-[Play it online]() (powered by the ___ javascript emulator) or [download]() the rom from the releases.
+[download]() the rom from the releases and play it with an emulator or flash it to a cartridge to play on the real hardware.
 
 ## Getting Started
 
