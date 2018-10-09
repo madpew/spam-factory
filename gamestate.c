@@ -505,7 +505,6 @@ void switch_screen(UINT8 screen, UINT8 fade)
 		if (fade != 0) gfx_fadeout();
 		
 		ui_menu = screen;
-		ui_icon_toggle = 0;
 		
 		if (fade != 0) 
 		{
@@ -658,6 +657,7 @@ void hud_update(UINT8 x, UINT16 number)
 
 void simulation_tick()
 {
+	UINT16 money_gain = 0;
 	mails_per_tick = manual_mail + automailer_count * 2 * automailer_mult;
 	targets_per_tick = manual_scrape + autoscraper_count * 3 * autoscraper_mult;
 	cost_per_tick = p_pc_costs + automailer_count * automailer_costs + autoscraper_count * autoscraper_costs;
@@ -686,7 +686,16 @@ void simulation_tick()
 	}
 	
 	STAT_mails_sent += p_emails;
-	p_money += p_emails * (_rand() & 0x07);
+	money_gain = p_emails * (_rand() & 0x07);
+	
+	if (money_gain + p_money < p_money)
+	{
+		p_money = 0xFFFFul;
+	}
+	else
+	{
+		p_money += money_gain;
+	}
 }
 
 void game_tick()

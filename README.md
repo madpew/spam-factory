@@ -22,6 +22,8 @@ To build the project from source you will need the following:
 GBDK-n comes with a few very helpful batch-files to ease the buildprocess.
 The Make.bat file in the project directory will need to be adjusted to your environment.
 
+```make```
+
 Or you can do it the hard way and build the rom manually:
 
 You will need to first compile all the modules seperately (SDCC can't compile all at once)
@@ -46,9 +48,9 @@ This file can be played in an emulator or transferred to a cartridge to play it 
 * Compiler: [SDCC](http://sdcc.sourceforge.net/) - GPL/zlib
 * Library: [GBDK-n](https://github.com/andreasjhkarlsson/gbdk-n) - OSI
 * Code Editor: [Notepad++](https://notepad-plus-plus.org) - GPL
-* Graphics: [GBSpriteStudio](pending release as foss)
+* Graphics: GBSpriteStudio (pending release as foss)
 * Music: [OpenMPT](https://openmpt.org/) - GPL
-* Converter: [pewMusicConverter](pending release as foss)
+* Converter: pewMusicConverter (pending release as foss)
 * Sound: [gbsound.gb](http://gbdev.gg8.se/files/musictools/Unknown-Other/)
 * Emulator: [GameBoy-Online](http://taisel.github.io/GameBoy-Online/) - see repo for licence
 
