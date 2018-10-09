@@ -2,9 +2,7 @@
 
 a clicker-game for the GameBoy.
 
-[download](https://github.com/madpew/spam-factory/releases/download/1/spam.gb) the rom from the releases and play it with an emulator or flash it to a cartridge to play on the real hardware.
-
-If you don't want to install an emulator you can use this online emulator: http://taisel.github.io/GameBoy-Online/
+[play it online](http://pixelsiege.net/spamfactory/) (powered by [GameBoyOnline](http://taisel.github.io/GameBoy-Online/))  or [download](https://github.com/madpew/spam-factory/releases/download/1/spam.gb) the rom and play it with your favorite emulator / flash it to a cartridge to play on the real hardware.
 
 ## Getting Started
 
@@ -48,11 +46,11 @@ This file can be played in an emulator or transferred to a cartridge to play it 
 * Compiler: [SDCC](http://sdcc.sourceforge.net/) - GPL/zlib
 * Library: [GBDK-n](https://github.com/andreasjhkarlsson/gbdk-n) - OSI
 * Code Editor: [Notepad++](https://notepad-plus-plus.org) - GPL
-* Graphics: [GBSpriteStudio](pending release as foss) - 
+* Graphics: [GBSpriteStudio](pending release as foss)
 * Music: [OpenMPT](https://openmpt.org/) - GPL
-* Converter: [pewMusicConverter](pending release as foss) - 
+* Converter: [pewMusicConverter](pending release as foss)
 * Sound: [gbsound.gb](http://gbdev.gg8.se/files/musictools/Unknown-Other/)
-* Emulator: [yet undecided]()
+* Emulator: [GameBoy-Online](http://taisel.github.io/GameBoy-Online/) - see repo for licence
 
 ## Contributing
 
