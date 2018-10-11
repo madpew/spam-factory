@@ -1,33 +1,58 @@
-echo off
-set BIN=..\..\bin
-set OBJ=obj
-set ROM=rom
+:: Build Script for gbdk-n projects
+:: IMPORTANT! SDCC needs to be in your path
 
-if not exist %OBJ% mkdir %OBJ%
-if not exist %ROM% mkdir %ROM%
+@echo off
+SETLOCAL EnableExtensions EnableDelayedExpansion
 
-call %BIN%\gbdk-n-compile.bat music.c -o %OBJ%\music.rel
-if %errorlevel% neq 0 goto error
-call %BIN%\gbdk-n-compile.bat timer.c -o %OBJ%\timer.rel
-if %errorlevel% neq 0 goto error
-call %BIN%\gbdk-n-compile.bat gfx.c -o %OBJ%\gfx.rel
-if %errorlevel% neq 0 goto error
-call %BIN%\gbdk-n-compile.bat sfx.c -o %OBJ%\sfx.rel
-if %errorlevel% neq 0 goto error
-call %BIN%\gbdk-n-compile.bat gamestate.c -o %OBJ%\gamestate.rel
-if %errorlevel% neq 0 goto error
-call %BIN%\gbdk-n-compile.bat main.c -o %OBJ%\main.rel
-if %errorlevel% neq 0 goto error
+:: point this to your GBDK-n directory
+set GBDK_DIR=C:\gbdk-n
 
-call %BIN%\gbdk-n-link.bat %OBJ%\music.rel %OBJ%\timer.rel %OBJ%\sfx.rel %OBJ%\gfx.rel %OBJ%\gamestate.rel %OBJ%\main.rel -o %OBJ%\spam.ihx
-if %errorlevel% neq 0 goto error
-call %BIN%\gbdk-n-make-rom.bat %OBJ%\spam.ihx %ROM%\spam.gb
-if %errorlevel% neq 0 goto error
-%ROM%\bgb %ROM%\spam.gb
-goto end
+:: variables
+set RELs=
+set INTERACTIVE=0
+set TARGET=
 
-:error
-pause
+:: get current directory name to use as output filename
+for %%d in ("%CD%") do set TARGET=%%~nxd
 
-:end
-exit
+:: make sure directories exist
+if not exist obj mkdir obj
+if not exist rom mkdir rom
+
+:: check if this file is running in an interactive session
+echo %CMDCMDLINE% | findstr /L /I %COMSPEC% >NUL 2>&1
+if %errorlevel% == 0 set INTERACTIVE=1
+
+:: compile all source files (*.c)
+for /R %CD% %%f in (*.c) do (
+	echo compiling %%~nf...
+	sdcc -mgbz80 --no-std-crt0 -I "%GBDK_DIR%\include" -I "%GBDK_DIR%\include\asm" -c %%~nf.c -o obj\%%~nf.rel
+	if %errorlevel% neq 0 goto :ERROR
+	set RELs=!RELs!_obj\%%~nf.rel
+)
+
+:: fix RELs
+set RELs=%RELs:_= %
+
+:: link objects
+echo linking...
+sdcc -mgbz80 --no-std-crt0 --data-loc 0xc0a0 -L "%GBDK_DIR%\lib" "%GBDK_DIR%\lib\crt0.rel" gb.lib %RELs% -o obj\%TARGET%.ihx
+if %errorlevel% neq 0 goto :ERROR
+
+:: make it into a rom
+echo making the rom...
+call makebin -Z obj\%TARGET%.ihx rom\%TARGET%.gb
+if %errorlevel% neq 0 goto :ERROR
+
+:: display rom-size info and launch emulator if build succeeded
+if exist tools\CheckRomSpace.exe tools\CheckRomSpace rom\%TARGET%.gb
+if exist rom\bgb.exe start rom\bgb rom\%TARGET%.gb
+goto :END
+
+:ERROR
+if %INTERACTIVE% neq 0 pause
+
+:END
+endlocal
+echo on
+@exit /b 0
