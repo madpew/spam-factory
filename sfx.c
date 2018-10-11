@@ -4,7 +4,7 @@
 void sfx_type()
 {
 	NR10_REG = 0x21u;
-	NR11_REG = 0x1Eu;
+	NR11_REG = 0x38u;
 	NR12_REG = 0x30u;
 	NR13_REG = 0xA4u;
 	NR14_REG = 0xC0u;

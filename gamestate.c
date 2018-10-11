@@ -50,10 +50,6 @@ void show_info(char* text);
 void game_enter();
 void game_tick();
 
-
-
-
-
 UINT8 ui_has_email;
 UINT16 STAT_mails_sent;
 ////////////////////////////////////////////////////////////////

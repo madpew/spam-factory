@@ -45,27 +45,6 @@ void music_init()
     NR22_REG = 0xB0U | 0x01U; // 0xF0 for full volume | sound length (bit 0-2)
 
 	NR30_REG = 0x80U; // Master ON
-	NR31_REG = 0xF5U; // SOUND LENGTH // F8
-	NR32_REG = 0x20U; //NR32_REG = 0x40U; // half
-
-	// WAV Ram
-	//($ff30-$ff3f).
-	*(UINT8*)0xFF30ul = 0xFFu; 
-	*(UINT8*)0xFF31ul = 0xEEu;
-	*(UINT8*)0xFF32ul = 0xDDu;
-	*(UINT8*)0xFF33ul = 0xCCu;
-	*(UINT8*)0xFF34ul = 0xBBu;
-	*(UINT8*)0xFF35ul = 0xAAu;
-	*(UINT8*)0xFF36ul = 0x99u;
-	*(UINT8*)0xFF37ul = 0x88u;
-	*(UINT8*)0xFF38ul = 0x00u;
-	*(UINT8*)0xFF39ul = 0x00u;
-	*(UINT8*)0xFF3Aul = 0x11u;
-	*(UINT8*)0xFF3Bul = 0x11u;
-	*(UINT8*)0xFF3Cul = 0x00u;
-	*(UINT8*)0xFF3Dul = 0x00u;
-	*(UINT8*)0xFF3Eul = 0x11u;
-	*(UINT8*)0xFF3Ful = 0x11u;
 }
 
 void music_tick()
@@ -120,7 +99,7 @@ void music_tick()
 	else
 	{
 		// use 3 for second track
-		NR31_REG = 0xB0u; //0x80U fullnote;
+		NR31_REG = 0xD0u; // note length counter init
 		NR32_REG = 0x40u;
 		NR33_REG = frequency;
 		NR34_REG = 0xC0u | (frequency >> 8); // 0x80
