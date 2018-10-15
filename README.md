@@ -48,7 +48,7 @@ This file can be played in an emulator or transferred to a cartridge to play it 
 * Compiler: [SDCC](http://sdcc.sourceforge.net/) - GPL/zlib
 * Library: [GBDK-n](https://github.com/andreasjhkarlsson/gbdk-n) - OSI
 * Code Editor: [Notepad++](https://notepad-plus-plus.org) - GPL
-* Graphics: GBSpriteStudio (pending release as foss)
+* Graphics: [pewSpriteStudio](https://github.com/madpew/pewSpriteStudio) - MIT
 * Music: [OpenMPT](https://openmpt.org/) - GPL
 * Converter: pewMusicConverter (pending release as foss)
 * Sound: [gbsound.gb](http://gbdev.gg8.se/files/musictools/Unknown-Other/)
